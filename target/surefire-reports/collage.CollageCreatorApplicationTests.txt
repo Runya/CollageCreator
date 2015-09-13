@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------
+Test set: collage.CollageCreatorApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 4.902 sec <<< FAILURE! - in collage.CollageCreatorApplicationTests
+twitter4jParserTest(collage.CollageCreatorApplicationTests)  Time elapsed: 1.189 sec  <<< FAILURE!
+junit.framework.AssertionFailedError: null
+	at junit.framework.Assert.fail(Assert.java:55)
+	at junit.framework.Assert.assertTrue(Assert.java:22)
+	at junit.framework.Assert.assertTrue(Assert.java:31)
+	at collage.CollageCreatorApplicationTests.twitter4jParserTest(CollageCreatorApplicationTests.java:27)
+
