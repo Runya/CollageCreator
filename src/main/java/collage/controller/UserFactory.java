@@ -1,6 +1,6 @@
 package collage.controller;
 
-import collage.Entity.MyUser;
+import collage.entity.Image;
 import collage.controller.impl.Twitter4jParser;
 
 import java.util.HashMap;
@@ -11,7 +11,7 @@ import java.util.HashMap;
 public class UserFactory {
 
     private Twitter4jParser twitterParser;
-    private HashMap<Long, MyUser> userHashMap;
+    private HashMap<Long, Image> userHashMap;
 
     public UserFactory(Twitter4jParser parser){
         this.twitterParser = twitterParser;

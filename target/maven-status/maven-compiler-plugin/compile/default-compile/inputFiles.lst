@@ -1,5 +1,6 @@
+/home/byte/IdeaProjects/collage/src/main/java/collage/controller/ImageFactory.java
 /home/byte/IdeaProjects/collage/src/main/java/collage/WelcomeController.java
+/home/byte/IdeaProjects/collage/src/main/java/collage/entity/Image.java
 /home/byte/IdeaProjects/collage/src/main/java/collage/controller/UserFactory.java
 /home/byte/IdeaProjects/collage/src/main/java/collage/CollageCreatorApplication.java
 /home/byte/IdeaProjects/collage/src/main/java/collage/controller/impl/Twitter4jParser.java
-/home/byte/IdeaProjects/collage/src/main/java/collage/Entity/MyUser.java

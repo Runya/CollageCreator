@@ -76,17 +76,18 @@ public class Twitter4jParser {
 
     public HashMap<String, Integer> getImagesMap(List<Long> usersId) {
         List<Handler> handlers = new LinkedList<>();
+        CountHandler countHandler = new CountHandler();
         for (int i = 0; i < poolSize; i++) {
-            Handler handler = new Handler(usersId, i, poolSize, twitter);
+            Handler handler = new Handler(usersId, i, poolSize, twitter, countHandler);
             service.execute(handler);
             handlers.add(handler);
         }
-        while (service.isShutdown()) try {
+        while (!countHandler.isEmpty()) try {
             Thread.sleep(10);
         } catch (InterruptedException ignored) {
         }
         HashMap<String, Integer> res = new HashMap<>();
-        for (Handler handler:handlers){
+        for (Handler handler : handlers) {
             res.putAll(handler.getImgCount());
         }
         return res;
@@ -117,35 +118,59 @@ class Handler implements Runnable {
     private HashMap<String, Integer> imgCount;
     private Twitter parser;
     private static final int STEP_SIZE = 100;
+    private CountHandler removeHadlers;
 
-    public Handler(List<Long> userIds, int handlerId, int step, Twitter parser) {
+    public Handler(List<Long> userIds, int handlerId, int step, Twitter parser, CountHandler removeHandlers) {
         this.userIds = userIds;
         this.handlerId = handlerId;
         this.step = step;
         this.parser = parser;
         imgCount = new HashMap<>();
+        this.removeHadlers = removeHandlers;
+        removeHandlers.inc();
     }
 
     @Override
     public void run() {
         int i = handlerId;
         int cours;
-        while ((cours = i++ * STEP_SIZE) < userIds.size()) {
-            long[] userIdsStep = new long[Math.min(STEP_SIZE, userIds.size())];
-            for (int j = i; j < Math.min(i + step, userIds.size()); j++) {
-                userIdsStep[j] = userIds.get(j);
+        while ((cours = i * STEP_SIZE) < userIds.size()) {
+            long[] userIdsStep = new long[Math.min(STEP_SIZE, userIds.size() - i)];
+            i+=step;
+            for (int j = 0; j < Math.min(STEP_SIZE, userIds.size() - cours); j++) {
+                userIdsStep[j] = userIds.get(cours + j);
             }
             try {
                 List<User> users = parser.lookupUsers(userIdsStep);
                 for (User user : users) {
                     String img = user.getOriginalProfileImageURL();
-                    int postCount = user.getListedCount();
+                    int postCount = user.getStatusesCount();
                     imgCount.put(img, postCount + 1);
                 }
             } catch (TwitterException e) {
                 e.printStackTrace();
             }
         }
+        removeHadlers.dec();
     }
+}
+
+class CountHandler {
+    private int count;
+
+    public void inc() {
+        count++;
+        System.out.println("inc count: " +count);
+    }
+
+    public boolean isEmpty() {
+        return count <= 0;
+    }
+
+    public void dec() {
+        System.out.println("dec count:" + count);
+        count--;
+    }
+
 }
 
