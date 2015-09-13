@@ -8,9 +8,6 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-/**
- * Created by byte on 9/13/15.
- */
 public class Twitter4jParser {
 
     private Twitter twitter;

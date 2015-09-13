@@ -9,6 +9,8 @@ import java.util.stream.Collectors;
 
 public class ImageFactory {
 
+    private static final double MAX_PERCENT = 0.3;
+
     Twitter4jParser parser;
 
     public ImageFactory(Twitter4jParser parser) {
@@ -18,7 +20,10 @@ public class ImageFactory {
     public List<Image> getUserImages(String login, int width, int height){
         List<Long> userId = parser.getFollowers(login);
         HashMap<String, Integer> hashMap = parser.getImagesMap(userId);
-        List<Image> images = hashMap.keySet().stream().map(key -> new Image(key, hashMap.get(key))).collect(Collectors.toList());
+        List<Image> images = hashMap.keySet().stream().
+                map(key -> new Image(key, hashMap.get(key)))
+                .sorted((i1, i2) -> i1.getPostCount() - i2.getPostCount())
+                .collect(Collectors.toList());
         setImagesProperty(images, width, height);
         return images;
     }
@@ -28,6 +33,14 @@ public class ImageFactory {
         for (Image image:images) {
             twittCount +=image.getPostCount();
         }
+        for (Image image:images){
+            if (image.getPostCount() / twittCount > MAX_PERCENT){
+                int count = (int) (MAX_PERCENT * image.getPostCount());
+                twittCount -= image.getPostCount() + count;
+                image.setPostCount(count);
+            }
+        }
+
         for (Image image:images){
             double percent = image.getPostCount() / twittCount;
             image.setPercent(percent);

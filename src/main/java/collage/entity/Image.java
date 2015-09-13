@@ -5,23 +5,18 @@ package collage.entity;
  */
 public class Image {
     private final String imgUrl;
-    private final int postCount;
     private int width;
     private int height;
-    private double percent;
+    private int x;
+    private int y;
 
     public Image(String imgUrl, int postCount) {
         this.imgUrl = imgUrl;
-        this.postCount = postCount;
     }
 
 
     public String getImgUrl() {
         return imgUrl;
-    }
-
-    public int getPostCount() {
-        return postCount;
     }
 
     public int getWidth() {
@@ -38,13 +33,5 @@ public class Image {
 
     public void setHeight(int height) {
         this.height = height;
-    }
-
-    public double getPersent() {
-        return percent;
-    }
-
-    public void setPercent(double percent) {
-        this.percent = percent;
     }
 }

@@ -3,9 +3,9 @@ collage/controller/impl/CountHandler.class
 collage/controller/impl/Twitter4jParser$2.class
 collage/WelcomeController.class
 collage/controller/UserFactory.class
+collage/Application.class
 collage/controller/impl/Twitter4jParser.class
 collage/controller/impl/Handler.class
 collage/controller/ImageFactory.class
 collage/controller/impl/FollowersInterface.class
 collage/controller/impl/Twitter4jParser$1.class
-collage/CollageCreatorApplication.class

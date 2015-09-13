@@ -8,20 +8,16 @@ import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
-
-@EnableAutoConfiguration
-@Configuration
-@ComponentScan
-@SpringBootApplication//todo ? i dont know
-public class CollageCreatorApplication extends SpringBootServletInitializer {
+@SpringBootApplication
+public class Application extends SpringBootServletInitializer {
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(CollageCreatorApplication.class);
+        return application.sources(Application.class);
     }
 
     public static void main(String[] args) throws Exception {
-        SpringApplication.run(CollageCreatorApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 
 }
