@@ -16,7 +16,7 @@ public class MainController {
     @Autowired
     ImageFactory imageFactory;
 
-    @RequestMapping(value = "/images", method = RequestMethod.GET)
+    @RequestMapping(value = "/makeCollage", method = RequestMethod.GET)
     public String showImages(
             @RequestParam(value = "login", required = false, defaultValue = "durov") String login,
             @RequestParam(value = "width", required = false, defaultValue = "1000") int width,
@@ -28,6 +28,10 @@ public class MainController {
         return "viewImage";
     }
 
+    @RequestMapping(value = "*")
+    public String defString(){
+        return "index";
+    }
 
 
     @RequestMapping("/foo")
