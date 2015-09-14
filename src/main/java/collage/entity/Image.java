@@ -9,6 +9,7 @@ public class Image {
     private int height;
     private int x;
     private int y;
+    private int postCount;
 
     public Image(String imgUrl, int postCount) {
         this.imgUrl = imgUrl;
@@ -33,5 +34,29 @@ public class Image {
 
     public void setHeight(int height) {
         this.height = height;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public int getPostCount() {
+        return postCount;
+    }
+
+    public void setPostCount(int count) {
+        this.postCount = count;
     }
 }

@@ -1,27 +1,31 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <link rel="stylesheet" type="text/css" media="all"  href="resources/collage/css/grid.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="resources/collage/css/grid.css"/>
 </head>
 <body>
 
-<div class="grid" style="background-color: antiquewhite" th:width="${collageW}" th:height="${collageH}">
-        <img class="grid-item" th:each="img : ${images}"
-             th:src="${img.imgUrl}"
-             th:width="${img.width}"
-             th:height="${img.height}"
-             th:alt="${img.postCount}"/>
-</div>
-<script>
-    $(document).ready(function () {
-        $('.grid').isotope({
-            itemSelector: '.grid-item',
-            masonry: {
-                columnWidth: 10
+
+<canvas id="collage" th:width="${collageW}" th:height="${collageH}"></canvas>
+</body>
+<script th:inline="javascript">
+    checkImage(/*[[${images}]]*/)
+
+    function checkImage(images) {
+        var canvas = document.getElementById("collage");
+        canvas.width = /*[[${collageW}]]*/;
+        canvas.height = /*[[${collageH}]]*/;
+
+        var context = canvas.getContext("2d");
+        images.forEach(function (item) {
+            var img = new Image();
+            img.src = item.imgUrl;
+            img.onload = function () {
+                console.log(item.x, item.y);
+
+                context.drawImage(img, item.x, item.y, item.width, item.height);
             }
         });
-    });
+
+    }
 </script>
-<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
-</body>
 </html>

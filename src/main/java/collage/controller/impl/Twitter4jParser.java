@@ -65,7 +65,8 @@ public class Twitter4jParser {
                     res.add(id);
                 }
 
-        } catch (TwitterException ignored) {
+        } catch (TwitterException e) {
+            e.printStackTrace();
         }
         return res;
     }
@@ -81,7 +82,8 @@ public class Twitter4jParser {
         }
         while (!countHandler.isEmpty()) try {
             Thread.sleep(10);
-        } catch (InterruptedException ignored) {
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
         HashMap<String, Integer> res = new HashMap<>();
         for (Handler handler : handlers) {
