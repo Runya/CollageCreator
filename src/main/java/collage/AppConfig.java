@@ -5,6 +5,7 @@ import collage.controller.ImageProperty;
 import collage.controller.ImagePropertyDefault;
 import collage.controller.RandomImageProperty;
 import collage.controller.collage.Canvas;
+import collage.controller.collage.ImageCreator;
 import collage.controller.impl.Twitter4jParser;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -36,5 +37,10 @@ public class AppConfig {
     @Bean
     public Canvas canvas(){
         return new Canvas();
+    }
+
+    @Bean
+    public ImageCreator imageCreator() {
+        return new ImageCreator();
     }
 }

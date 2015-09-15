@@ -25,12 +25,12 @@ public class RandomImageProperty implements ImageProperty {
 
         for (Image image : images) {
             double percent = image.getPostCount() / twittCount;
-            image.setWidth((int) Math.sqrt(width * height * percent));
-            image.setHeight((int) Math.sqrt(width * height * percent));
+            image.setWidth(Math.max(15, (int) Math.sqrt(width * height * percent )));
+            image.setHeight(image.getWidth());
         }
 
-        if (images.size() > 1000)
-            images.removeAll(images.subList(1000, images.size()));
+        if (images.size() > 1200)
+            images.removeAll(images.subList(1200, images.size()));
         Collections.sort(images, ((o1, o2) -> o2.getPostCount() - o1.getPostCount()));
         canvas.build();
 

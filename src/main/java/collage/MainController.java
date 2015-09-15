@@ -1,9 +1,13 @@
 package collage;
 
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.*;
 
 import collage.controller.ImageFactory;
 import collage.controller.ImageProperty;
+import collage.controller.collage.ImageCreator;
+import collage.entity.Image;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -23,6 +27,9 @@ public class MainController {
 
     @Autowired
     private ApplicationContext applicationContext;
+
+    @Autowired
+    private ImageCreator imageCreator;
 
     private final static Logger logger = Logger.getLogger(MainController.class);
 
@@ -45,15 +52,23 @@ public class MainController {
         try {
             user = imageFactory.check(login);
             ImageProperty imageProperty = (ImageProperty) applicationContext.getBean(ConfigProperty.PROP[builder]);
-            map.put("images", imageFactory.getUserImages(login, width, height, imageProperty));
-        } catch (TwitterException e) {
+            List<Image> images;
+            map.put("images", images = imageFactory.getUserImages(login, width, height, imageProperty));
+//            String bufferedImage = imageCreator.getImgUrl(images, width, height);
+//            map.put("imgSrc", bufferedImage);
+            if (logger.isDebugEnabled()) {
+                logger.debug("login:\"" + login + "\" image size =" + images.size());
+            }
+        } catch (TwitterException /*| IOException*/ e) {
             logger.error(e);
-            if (e.getErrorMessage().equals("Rate limit exceeded"))
-                map.put("errorMessage", "Rate limit, please wait " + e.getRateLimitStatus().getSecondsUntilReset() / 60 + ":" + e.getRateLimitStatus().getSecondsUntilReset() % 60);
-            else if (e.getErrorMessage().equals("Sorry, that page does not exist."))
-                map.put("errorMessage", "login:\"" + login + "\" not found");
-            else {
-                map.put("errorMessage", "Sorry, error");
+            if (e instanceof TwitterException) {
+                if (((TwitterException)e).getErrorMessage().equals("Rate limit exceeded"))
+                    map.put("errorMessage", "Rate limit, please wait " + ((TwitterException)e).getRateLimitStatus().getSecondsUntilReset() / 60 + ":" + ((TwitterException)e).getRateLimitStatus().getSecondsUntilReset() % 60);
+                else if (((TwitterException)e).getErrorMessage().equals("Sorry, that page does not exist."))
+                    map.put("errorMessage", "login:\"" + login + "\" not found");
+                else {
+                    map.put("errorMessage", "Sorry, error");
+                }
             }
             return "error";
         }
@@ -63,8 +78,13 @@ public class MainController {
         return "viewImage";
     }
 
-    @RequestMapping(value = "*")
+    @RequestMapping(value = "/index")
     public String redirect() {
+        return "index";
+    }
+
+    @RequestMapping(value = "/")
+    public String redirectt(){
         return "index";
     }
 

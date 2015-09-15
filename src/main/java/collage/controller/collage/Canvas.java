@@ -88,7 +88,7 @@ public class Canvas {
         Point5D p = new Point5D();
         do {
             p.x1 = random.nextInt(width);
-            p.y1 = random.nextInt(width);
+            p.y1 = random.nextInt(height);
             p.x2 = p.x1 + image.getWidth();
             p.y2 = p.y1 + image.getHeight();
         } while (!check(p));
