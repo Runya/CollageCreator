@@ -7,9 +7,7 @@
 	<artifactId>collage</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <configuration>
-        <port>80</port>
-    </configuration>
+
 
     <properties>
         <java.version>1.8</java.version>
