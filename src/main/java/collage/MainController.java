@@ -1,7 +1,10 @@
 package collage;
 
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.*;
 
 import collage.controller.ImageFactory;
@@ -12,11 +15,14 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import twitter4j.TwitterException;
 import twitter4j.User;
+
+import javax.servlet.http.HttpServletResponse;
 
 
 @Controller
@@ -62,9 +68,9 @@ public class MainController {
         } catch (TwitterException /*| IOException*/ e) {
             logger.error(e);
             if (e instanceof TwitterException) {
-                if (((TwitterException)e).getErrorMessage().equals("Rate limit exceeded"))
-                    map.put("errorMessage", "Rate limit, please wait " + ((TwitterException)e).getRateLimitStatus().getSecondsUntilReset() / 60 + ":" + ((TwitterException)e).getRateLimitStatus().getSecondsUntilReset() % 60);
-                else if (((TwitterException)e).getErrorMessage().equals("Sorry, that page does not exist."))
+                if (((TwitterException) e).getErrorMessage().equals("Rate limit exceeded"))
+                    map.put("errorMessage", "Rate limit, please wait " + ((TwitterException) e).getRateLimitStatus().getSecondsUntilReset() / 60 + ":" + ((TwitterException) e).getRateLimitStatus().getSecondsUntilReset() % 60);
+                else if (((TwitterException) e).getErrorMessage().equals("Sorry, that page does not exist."))
                     map.put("errorMessage", "login:\"" + login + "\" not found");
                 else {
                     map.put("errorMessage", "Sorry, error");
@@ -84,8 +90,9 @@ public class MainController {
     }
 
     @RequestMapping(value = "/")
-    public String redirectt(){
+    public String ef() {
         return "index";
     }
+
 
 }

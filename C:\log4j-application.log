@@ -1138,3 +1138,134 @@ TwitterException{exceptionCode=[a0c96a69-15680e60], statusCode=429, message=Rate
 2015-09-15 23:07:48 DEBUG Handler:173 - thread:1end
 2015-09-15 23:07:48 DEBUG Handler:173 - thread:0end
 2015-09-15 23:07:48 DEBUG MainController:60 - login:"byteua" image size =5
+2015-09-15 23:21:33 DEBUG MainController:49 - login:"byteua" width=1000, height=800 builder=0
+2015-09-15 23:21:34 DEBUG Handler:148 - thread:0started
+2015-09-15 23:21:34 DEBUG Handler:148 - thread:4started
+2015-09-15 23:21:34 DEBUG Handler:173 - thread:4end
+2015-09-15 23:21:34 DEBUG Handler:148 - thread:2started
+2015-09-15 23:21:34 DEBUG Handler:173 - thread:2end
+2015-09-15 23:21:34 DEBUG Handler:148 - thread:3started
+2015-09-15 23:21:34 DEBUG Handler:148 - thread:1started
+2015-09-15 23:21:34 DEBUG Handler:173 - thread:1end
+2015-09-15 23:21:34 DEBUG Handler:173 - thread:3end
+2015-09-15 23:21:34 DEBUG Handler:173 - thread:0end
+2015-09-15 23:21:35 DEBUG MainController:60 - login:"byteua" image size =6
+2015-09-15 23:22:30 DEBUG MainController:49 - login:"byteua" width=1000, height=800 builder=0
+2015-09-15 23:22:31 DEBUG Handler:148 - thread:0started
+2015-09-15 23:22:31 DEBUG Handler:148 - thread:3started
+2015-09-15 23:22:31 DEBUG Handler:173 - thread:3end
+2015-09-15 23:22:31 DEBUG Handler:148 - thread:4started
+2015-09-15 23:22:31 DEBUG Handler:148 - thread:1started
+2015-09-15 23:22:31 DEBUG Handler:148 - thread:2started
+2015-09-15 23:22:31 DEBUG Handler:173 - thread:2end
+2015-09-15 23:22:31 DEBUG Handler:173 - thread:1end
+2015-09-15 23:22:31 DEBUG Handler:173 - thread:4end
+2015-09-15 23:22:31 DEBUG Handler:173 - thread:0end
+2015-09-15 23:22:32 DEBUG MainController:60 - login:"byteua" image size =6
+2015-09-15 23:23:03 DEBUG MainController:49 - login:"byteua" width=1000, height=800 builder=0
+2015-09-15 23:23:04 DEBUG Handler:148 - thread:0started
+2015-09-15 23:23:04 DEBUG Handler:148 - thread:1started
+2015-09-15 23:23:04 DEBUG Handler:148 - thread:3started
+2015-09-15 23:23:04 DEBUG Handler:148 - thread:4started
+2015-09-15 23:23:04 DEBUG Handler:148 - thread:2started
+2015-09-15 23:23:04 DEBUG Handler:173 - thread:1end
+2015-09-15 23:23:04 DEBUG Handler:173 - thread:2end
+2015-09-15 23:23:04 DEBUG Handler:173 - thread:4end
+2015-09-15 23:23:04 DEBUG Handler:173 - thread:3end
+2015-09-15 23:23:04 DEBUG Handler:173 - thread:0end
+2015-09-15 23:23:05 DEBUG MainController:60 - login:"byteua" image size =6
+2015-09-15 23:23:19 DEBUG MainController:49 - login:"byteua" width=1000, height=800 builder=0
+2015-09-15 23:23:20 DEBUG Handler:148 - thread:0started
+2015-09-15 23:23:20 DEBUG Handler:148 - thread:3started
+2015-09-15 23:23:20 DEBUG Handler:173 - thread:3end
+2015-09-15 23:23:20 DEBUG Handler:148 - thread:2started
+2015-09-15 23:23:20 DEBUG Handler:148 - thread:1started
+2015-09-15 23:23:20 DEBUG Handler:173 - thread:1end
+2015-09-15 23:23:20 DEBUG Handler:173 - thread:2end
+2015-09-15 23:23:20 DEBUG Handler:148 - thread:4started
+2015-09-15 23:23:20 DEBUG Handler:173 - thread:4end
+2015-09-15 23:23:21 DEBUG Handler:173 - thread:0end
+2015-09-15 23:23:22 DEBUG MainController:60 - login:"byteua" image size =6
+2015-09-15 23:23:27 DEBUG MainController:49 - login:"byteua" width=1000, height=800 builder=0
+2015-09-15 23:23:28 DEBUG Handler:148 - thread:0started
+2015-09-15 23:23:28 DEBUG Handler:148 - thread:4started
+2015-09-15 23:23:28 DEBUG Handler:148 - thread:3started
+2015-09-15 23:23:28 DEBUG Handler:173 - thread:3end
+2015-09-15 23:23:28 DEBUG Handler:148 - thread:2started
+2015-09-15 23:23:28 DEBUG Handler:148 - thread:1started
+2015-09-15 23:23:28 DEBUG Handler:173 - thread:1end
+2015-09-15 23:23:28 DEBUG Handler:173 - thread:2end
+2015-09-15 23:23:28 DEBUG Handler:173 - thread:4end
+2015-09-15 23:23:28 DEBUG Handler:173 - thread:0end
+2015-09-15 23:23:29 DEBUG MainController:60 - login:"byteua" image size =6
+2015-09-15 23:23:46 DEBUG MainController:49 - login:"byteua" width=1000, height=800 builder=0
+2015-09-15 23:23:48 DEBUG MainController:49 - login:"byteua" width=1000, height=800 builder=0
+2015-09-15 23:23:52 DEBUG Handler:148 - thread:0started
+2015-09-15 23:23:52 DEBUG Handler:148 - thread:2started
+2015-09-15 23:23:52 DEBUG Handler:148 - thread:3started
+2015-09-15 23:23:52 DEBUG Handler:173 - thread:3end
+2015-09-15 23:23:52 DEBUG Handler:148 - thread:1started
+2015-09-15 23:23:52 DEBUG Handler:148 - thread:4started
+2015-09-15 23:23:52 DEBUG Handler:173 - thread:4end
+2015-09-15 23:23:52 DEBUG Handler:173 - thread:2end
+2015-09-15 23:23:52 DEBUG Handler:173 - thread:1end
+2015-09-15 23:23:52 DEBUG Handler:148 - thread:2started
+2015-09-15 23:23:52 DEBUG Handler:148 - thread:1started
+2015-09-15 23:23:52 DEBUG Handler:148 - thread:0started
+2015-09-15 23:23:52 DEBUG Handler:173 - thread:1end
+2015-09-15 23:23:52 DEBUG Handler:148 - thread:4started
+2015-09-15 23:23:52 DEBUG Handler:173 - thread:4end
+2015-09-15 23:23:52 DEBUG Handler:173 - thread:2end
+2015-09-15 23:23:52 DEBUG Handler:148 - thread:3started
+2015-09-15 23:23:52 DEBUG Handler:173 - thread:3end
+2015-09-15 23:23:52 DEBUG Handler:173 - thread:0end
+2015-09-15 23:23:52 DEBUG Handler:173 - thread:0end
+2015-09-15 23:23:53 DEBUG MainController:60 - login:"byteua" image size =6
+2015-09-15 23:23:53 DEBUG MainController:60 - login:"byteua" image size =6
+2015-09-15 23:24:37 DEBUG MainController:49 - login:"byteua" width=1000, height=800 builder=0
+2015-09-15 23:24:37 DEBUG Handler:148 - thread:0started
+2015-09-15 23:24:37 DEBUG Handler:148 - thread:1started
+2015-09-15 23:24:37 DEBUG Handler:173 - thread:1end
+2015-09-15 23:24:37 DEBUG Handler:148 - thread:4started
+2015-09-15 23:24:37 DEBUG Handler:148 - thread:3started
+2015-09-15 23:24:37 DEBUG Handler:148 - thread:2started
+2015-09-15 23:24:37 DEBUG Handler:173 - thread:2end
+2015-09-15 23:24:37 DEBUG Handler:173 - thread:3end
+2015-09-15 23:24:37 DEBUG Handler:173 - thread:4end
+2015-09-15 23:24:38 DEBUG Handler:173 - thread:0end
+2015-09-15 23:24:38 DEBUG MainController:60 - login:"byteua" image size =6
+2015-09-15 23:33:04 DEBUG MainController:55 - login:"byte" width=1000, height=800 builder=0
+2015-09-15 23:33:06 DEBUG Handler:148 - thread:0started
+2015-09-15 23:33:06 DEBUG Handler:148 - thread:3started
+2015-09-15 23:33:06 DEBUG Handler:148 - thread:2started
+2015-09-15 23:33:06 DEBUG Handler:148 - thread:4started
+2015-09-15 23:33:06 DEBUG Handler:148 - thread:1started
+2015-09-15 23:33:07 DEBUG Handler:173 - thread:3end
+2015-09-15 23:33:07 DEBUG Handler:173 - thread:4end
+2015-09-15 23:33:07 DEBUG Handler:173 - thread:2end
+2015-09-15 23:33:07 DEBUG Handler:173 - thread:0end
+2015-09-15 23:33:08 DEBUG Handler:173 - thread:1end
+2015-09-15 23:33:08 DEBUG MainController:66 - login:"byte" image size =667
+2015-09-15 23:33:17 DEBUG MainController:55 - login:"sadfljsdipogfojsd" width=1000, height=800 builder=0
+2015-09-15 23:33:18 ERROR MainController:69 - 404:The URI requested is invalid or the resource requested, such as a user, does not exists. Also returned when the requested format is not supported by the requested method.
+message - Sorry, that page does not exist.
+code - 34
+
+Relevant discussions can be found on the Internet at:
+	http://www.google.co.jp/search?q=381aea58 or
+	http://www.google.co.jp/search?q=2d05718d
+TwitterException{exceptionCode=[381aea58-2d05718d], statusCode=404, message=Sorry, that page does not exist., code=34, retryAfter=-1, rateLimitStatus=RateLimitStatusJSONImpl{remaining=166, limit=180, resetTimeInSeconds=1442349263, secondsUntilReset=64}, version=4.0.3}
+2015-09-15 23:33:43 DEBUG MainController:55 - login:"s" width=0, height=800 builder=-1
+2015-09-15 23:33:48 DEBUG MainController:55 - login:"s" width=100, height=800 builder=-1
+2015-09-15 23:33:53 DEBUG MainController:55 - login:"s" width=100, height=800 builder=0
+2015-09-15 23:33:53 DEBUG Handler:148 - thread:0started
+2015-09-15 23:33:53 DEBUG Handler:148 - thread:4started
+2015-09-15 23:33:53 DEBUG Handler:173 - thread:4end
+2015-09-15 23:33:53 DEBUG Handler:148 - thread:2started
+2015-09-15 23:33:53 DEBUG Handler:173 - thread:2end
+2015-09-15 23:33:53 DEBUG Handler:148 - thread:1started
+2015-09-15 23:33:53 DEBUG Handler:148 - thread:3started
+2015-09-15 23:33:53 DEBUG Handler:173 - thread:1end
+2015-09-15 23:33:53 DEBUG Handler:173 - thread:3end
+2015-09-15 23:33:54 DEBUG Handler:173 - thread:0end
+2015-09-15 23:33:54 DEBUG MainController:66 - login:"s" image size =36
