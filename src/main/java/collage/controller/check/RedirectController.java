@@ -1,10 +1,7 @@
-package collage.controller;
+package collage.controller.check;
 
 import java.util.HashMap;
 
-/**
- * Created by byte on 9/15/15.
- */
 public class RedirectController {
 
     private static HashMap<String, String> map = new HashMap<>();

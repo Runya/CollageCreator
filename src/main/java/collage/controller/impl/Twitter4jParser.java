@@ -1,6 +1,8 @@
 package collage.controller.impl;
 
+import org.apache.log4j.*;
 import twitter4j.*;
+import twitter4j.Logger;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -13,7 +15,7 @@ public class Twitter4jParser {
     private Twitter twitter;
     private ExecutorService service;
     private int poolSize;
-
+    private final static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(Twitter4jParser.class);
 
     public Twitter4jParser(int poolSize) {
         this.twitter = new TwitterFactory().getInstance();
@@ -114,6 +116,8 @@ class Handler implements Runnable {
     private int step;
     private Exception e;
 
+    private final static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(Handler.class);
+
     public HashMap<String, Integer> getImgCount() {
         return imgCount;
     }
@@ -137,15 +141,19 @@ class Handler implements Runnable {
     public Exception getE() {
         return e;
     }
+
     @Override
     public void run() {
+        if (logger.isDebugEnabled()) {
+            logger.debug("thread:" + handlerId + "started");
+        }
         int i = handlerId;
-        int cours;
-        while ((cours = i * STEP_SIZE) < userIds.size()) {
+        int course;
+        while ((course = i * STEP_SIZE) < userIds.size()) {
             long[] userIdsStep = new long[Math.min(STEP_SIZE, userIds.size() - i)];
             i += step;
-            for (int j = 0; j < Math.min(STEP_SIZE, userIds.size() - cours); j++) {
-                userIdsStep[j] = userIds.get(cours + j);
+            for (int j = 0; j < Math.min(STEP_SIZE, userIds.size() - course); j++) {
+                userIdsStep[j] = userIds.get(course + j);
             }
             try {
                 List<User> users = parser.lookupUsers(userIdsStep);
@@ -155,10 +163,14 @@ class Handler implements Runnable {
                     imgCount.put(img, postCount + 1);
                 }
             } catch (TwitterException e) {
+                logger.error(handlerId, e);
                 removeHadlers.setException(e);
                 this.e = e;
                 return;
             }
+        }
+        if (logger.isDebugEnabled()) {
+            logger.debug("thread:" + handlerId + "end");
         }
         removeHadlers.dec();
     }
@@ -169,7 +181,6 @@ class CountHandler {
 
     public void inc() {
         count++;
-        System.out.println("inc count: " + count);
     }
 
     public boolean isEmpty() throws TwitterException {
@@ -178,7 +189,6 @@ class CountHandler {
     }
 
     public void dec() {
-        System.out.println("dec count:" + count);
         count--;
     }
 

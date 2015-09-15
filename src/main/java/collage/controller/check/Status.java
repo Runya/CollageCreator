@@ -1,4 +1,4 @@
-package collage.controller.impl;
+package collage.controller.check;
 
 public class Status {
 

@@ -1,4 +1,4 @@
-package collage.controller;
+package collage.controller.check;
 
 import twitter4j.Status;
 

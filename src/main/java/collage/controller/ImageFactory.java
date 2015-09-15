@@ -2,8 +2,8 @@ package collage.controller;
 
 import collage.controller.impl.Twitter4jParser;
 import collage.entity.Image;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import twitter4j.TwitterException;
 import twitter4j.User;
 
@@ -15,7 +15,7 @@ public class ImageFactory {
     static final double MAX_PERCENT = 0.3;
     @Autowired
     private Twitter4jParser parser;
-
+    private final static Logger logger = Logger.getLogger(ImageFactory.class);
 
 
     public List<Image> getUserImages(String login, int width, int height, ImageProperty imageProperty) throws TwitterException {

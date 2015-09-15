@@ -24,7 +24,7 @@ public class MainController {
     @Autowired
     private ApplicationContext applicationContext;
 
-    final static Logger logger = Logger.getLogger(MainController.class);
+    private final static Logger logger = Logger.getLogger(MainController.class);
 
 
     @RequestMapping(value = "/makeCollage", method = RequestMethod.GET)
@@ -45,10 +45,9 @@ public class MainController {
         try {
             user = imageFactory.check(login);
             ImageProperty imageProperty = (ImageProperty) applicationContext.getBean(ConfigProperty.PROP[builder]);
-
-
             map.put("images", imageFactory.getUserImages(login, width, height, imageProperty));
         } catch (TwitterException e) {
+            logger.error(e);
             if (e.getErrorMessage().equals("Rate limit exceeded"))
                 map.put("errorMessage", "Rate limit, please wait " + e.getRateLimitStatus().getSecondsUntilReset() / 60 + ":" + e.getRateLimitStatus().getSecondsUntilReset() % 60);
             else if (e.getErrorMessage().equals("Sorry, that page does not exist."))
