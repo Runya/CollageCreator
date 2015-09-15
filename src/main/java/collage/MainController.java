@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import twitter4j.TwitterException;
+import twitter4j.User;
 
 
 @Controller
@@ -34,9 +35,12 @@ public class MainController {
             map.put("errorMessage", "Please write normal height or width");
             return "error";
         }
+        User user;
         try {
-            imageFactory.check(login);
+            user = imageFactory.check(login);
             ImageProperty imageProperty = (ImageProperty) applicationContext.getBean(ConfigProperty.PROP[builder]);
+
+
             map.put("images", imageFactory.getUserImages(login, width, height, imageProperty));
         } catch (TwitterException e) {
             if (e.getErrorMessage().equals("Rate limit exceeded"))
@@ -50,6 +54,7 @@ public class MainController {
         }
         map.put("collageW", width);
         map.put("collageH", height);
+        map.put("user", user);
         return "viewImage";
     }
 

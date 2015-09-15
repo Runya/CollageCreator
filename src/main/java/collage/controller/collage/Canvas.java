@@ -76,8 +76,8 @@ public class Canvas {
         if (best.anInt == -1) {
             best.anInt = 0;
         }
-        best.x2 -= best.anInt;
-        best.y2 -= best.anInt;
+//        best.x2 -= best.anInt;
+//        best.y2 -= best.anInt;
         return best;
     }
 

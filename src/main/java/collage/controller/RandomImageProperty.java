@@ -29,9 +29,9 @@ public class RandomImageProperty implements ImageProperty {
             image.setHeight((int) Math.sqrt(width * height * percent));
         }
 
+        if (images.size() > 1000)
+            images.removeAll(images.subList(1000, images.size()));
         Collections.sort(images, ((o1, o2) -> o2.getPostCount() - o1.getPostCount()));
-        if (images.size() > 1200)
-            images.removeAll(images.subList(1200, images.size()));
         canvas.build();
 
     }

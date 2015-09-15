@@ -15,12 +15,17 @@ public class ImagePropertyDefault implements ImageProperty {
         Collections.shuffle(images);
         int x = (int) Math.ceil(Math.sqrt(1f * images.size() * width / height));
         int y = (int) Math.ceil(1f * images.size() / x);
-        int size = Math.min(width / x, height / y);
+        int size;
+        try {
+            size = Math.min(width / x, height / y);
+        } catch (Exception e){
+            size = 100;
+        }
         for (int i = 0; i < x; i++) {
             for (int j = 0; j < y; j++) {
                 Image image;
                 if ((i * y + j) < images.size()) {
-                    image = images.get(i * x + j);
+                    image = images.get(i * y + j);
                 } else {
                     Image rand = images.get((int) (Math.random() * images.size()));
                     image = new Image(rand.getImgUrl(), rand.getPostCount());
