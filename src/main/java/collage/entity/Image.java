@@ -15,7 +15,6 @@ public class Image {
 
 
     public String getImgUrl() {
-
         return imgUrl;
     }
 

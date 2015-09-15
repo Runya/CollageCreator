@@ -33,7 +33,7 @@
             img.onload = function () {
                 console.log(item.x, item.y);
 
-                context.drawImage(img, item.x, item.y, item.width, item.height);
+                context.drawImage(img, item.x, item.y, item.width + 1, item.height + 1);
             }
         });
 

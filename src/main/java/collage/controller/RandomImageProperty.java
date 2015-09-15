@@ -20,7 +20,7 @@ public class RandomImageProperty implements ImageProperty {
         canvas.setImageList(images);
 
         for (Image image : images) {
-            twittCount+=image.getPostCount();
+            twittCount += image.getPostCount();
         }
 
         for (Image image : images) {
@@ -30,7 +30,8 @@ public class RandomImageProperty implements ImageProperty {
         }
 
         Collections.sort(images, ((o1, o2) -> o2.getPostCount() - o1.getPostCount()));
-
+        if (images.size() > 1200)
+            images.removeAll(images.subList(1200, images.size()));
         canvas.build();
 
     }

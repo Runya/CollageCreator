@@ -97,7 +97,9 @@ public class Canvas {
 
     private boolean check(Point5D p) {
         int fasa = -1;
+        if (p == null) return false;
         for (Point4D p4 : points) {
+            if (p4 == null) continue;
             if (check(p.x1, p4.x1, p4.x2) && check(p.y1, p4.y1, p4.y2)) return false;
             int buf = -1;
             try {
