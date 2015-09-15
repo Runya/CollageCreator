@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -jar target/*.jarroku app
+web: java $JAVA_OPTS -jar target/*.jar
