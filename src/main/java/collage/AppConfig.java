@@ -3,6 +3,8 @@ package collage;
 import collage.controller.ImageFactory;
 import collage.controller.ImageProperty;
 import collage.controller.ImagePropertyDefault;
+import collage.controller.RandomImageProperty;
+import collage.controller.collage.Canvas;
 import collage.controller.impl.Twitter4jParser;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,8 +23,18 @@ public class AppConfig {
         return new Twitter4jParser(ConfigProperty.POOL_SIZE);
     }
 
-    @Bean
-    public ImageProperty imageProperty(){
+    @Bean(name = "defaultImageProp")
+    public ImageProperty defaultImageProperty(){
         return new ImagePropertyDefault();
+    }
+
+    @Bean(name = "randomImageProp")
+    public ImageProperty randomImageProperty(){
+        return new RandomImageProperty();
+    }
+
+    @Bean
+    public Canvas canvas(){
+        return new Canvas();
     }
 }

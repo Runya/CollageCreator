@@ -22,7 +22,7 @@ public class Twitter4jParser {
     }
 
 
-    public List<Long> getFollowers(Long userId) {
+    public List<Long> getFollowers(Long userId) throws TwitterException {
         return getFollowers(new FollowersInterface() {
             @Override
             public IDs next() {
@@ -39,24 +39,24 @@ public class Twitter4jParser {
     }
 
 
-    public List<Long> getFollowers(String login) {
+    public List<Long> getFollowers(String login) throws TwitterException {
         return getFollowers(new FollowersInterface() {
             @Override
-            public IDs next() {
+            public IDs next() throws TwitterException {
                 if (cursor == 0) return null;
                 IDs iDs = null;
                 try {
                     iDs = twitter.getFriendsIDs(login, cursor);
+                    cursor = iDs.getNextCursor();
                 } catch (TwitterException e) {
-                    return null;
+                    throw e;
                 }
-                cursor = iDs.getNextCursor();
                 return iDs;
             }
         });
     }
 
-    private List<Long> getFollowers(FollowersInterface fol) {
+    private List<Long> getFollowers(FollowersInterface fol) throws TwitterException {
         List<Long> res = new LinkedList<>();
         IDs iDs;
         try {
@@ -94,6 +94,9 @@ public class Twitter4jParser {
     }
 
 
+    public User getUser(String login) throws TwitterException {
+        return twitter.showUser(login);
+    }
 }
 
 abstract class FollowersInterface {
@@ -135,7 +138,7 @@ class Handler implements Runnable {
         int cours;
         while ((cours = i * STEP_SIZE) < userIds.size()) {
             long[] userIdsStep = new long[Math.min(STEP_SIZE, userIds.size() - i)];
-            i+=step;
+            i += step;
             for (int j = 0; j < Math.min(STEP_SIZE, userIds.size() - cours); j++) {
                 userIdsStep[j] = userIds.get(cours + j);
             }
@@ -159,7 +162,7 @@ class CountHandler {
 
     public void inc() {
         count++;
-        System.out.println("inc count: " +count);
+        System.out.println("inc count: " + count);
     }
 
     public boolean isEmpty() {

@@ -3,12 +3,22 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
-
 </head>
+
+
 <body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" th:href="index">
+                Collage Creator
+            </a>
+        </div>
+    </div>
+</nav>
 <div style="background-color: aquamarine"></div>
-<h2 class="col-md-offset-2">Collage creator</h2>
-<form class="form-horizontal" id="myForm" th:action="maceCollage">
+<h3 class="col-md-offset-2" th:text="${rateLimit}"></h3>
+<form class="form-horizontal" id="myForm" th:action="makeCollage">
     <div class="form-group">
         <label for="inputLogin" class="col-sm-2 control-label">login</label>
         <div class="col-sm-2">

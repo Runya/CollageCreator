@@ -5,6 +5,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
 </head>
 <body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" th:href="index">
+                Collage Creator
+            </a>
+        </div>
+    </div>
+</nav>
 
 
 <canvas id="collage" th:width="${collageW}" th:height="${collageH}"></canvas>

@@ -1,8 +1,5 @@
 package collage.entity;
 
-/**
- * Created by byte on 9/13/15.
- */
 public class Image {
     private final String imgUrl;
     private int width;
@@ -13,10 +10,12 @@ public class Image {
 
     public Image(String imgUrl, int postCount) {
         this.imgUrl = imgUrl;
+        this.postCount = postCount;
     }
 
 
     public String getImgUrl() {
+
         return imgUrl;
     }
 
