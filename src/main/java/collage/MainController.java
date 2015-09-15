@@ -4,6 +4,7 @@ import java.util.*;
 
 import collage.controller.ImageFactory;
 import collage.controller.ImageProperty;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -23,17 +24,22 @@ public class MainController {
     @Autowired
     private ApplicationContext applicationContext;
 
+    final static Logger logger = Logger.getLogger(MainController.class);
+
 
     @RequestMapping(value = "/makeCollage", method = RequestMethod.GET)
     public String showImages(
-            @RequestParam(value = "login", required = false, defaultValue = "durov") String login,
+            @RequestParam(value = "login", required = false, defaultValue = "") String login,
             @RequestParam(value = "width", required = false, defaultValue = "1000") int width,
             @RequestParam(value = "height", required = false, defaultValue = "800") int height,
             @RequestParam(value = "selectProp", required = false, defaultValue = "0") int builder,
             Map<String, Object> map) {
-        if (width < 0 || height < 0 || width > 10000 || height > 10000){
+        if (width < 0 || height < 0 || width > 10000 || height > 10000) {
             map.put("errorMessage", "Please write normal height or width");
             return "error";
+        }
+        if (logger.isDebugEnabled()) {
+            logger.debug("login:\"" + login + "\" width=" + width + ", height=" + height + " builder=" + builder);
         }
         User user;
         try {
@@ -50,7 +56,7 @@ public class MainController {
             else {
                 map.put("errorMessage", "Sorry, error");
             }
-            return "errorMessage";
+            return "error";
         }
         map.put("collageW", width);
         map.put("collageH", height);
@@ -58,8 +64,8 @@ public class MainController {
         return "viewImage";
     }
 
-    @RequestMapping(value = "/")
-    public String redirect(){
+    @RequestMapping(value = "*")
+    public String redirect() {
         return "index";
     }
 

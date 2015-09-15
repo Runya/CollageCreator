@@ -66,13 +66,13 @@ public class Twitter4jParser {
                 }
 
         } catch (TwitterException e) {
-            e.printStackTrace();
+            throw e;
         }
         return res;
     }
 
 
-    public HashMap<String, Integer> getImagesMap(List<Long> usersId) {
+    public HashMap<String, Integer> getImagesMap(List<Long> usersId) throws TwitterException {
         List<Handler> handlers = new LinkedList<>();
         CountHandler countHandler = new CountHandler();
         for (int i = 0; i < poolSize; i++) {
@@ -112,6 +112,7 @@ class Handler implements Runnable {
     private List<Long> userIds;
     private int handlerId;
     private int step;
+    private Exception e;
 
     public HashMap<String, Integer> getImgCount() {
         return imgCount;
@@ -130,8 +131,12 @@ class Handler implements Runnable {
         imgCount = new HashMap<>();
         this.removeHadlers = removeHandlers;
         removeHandlers.inc();
+        e = null;
     }
 
+    public Exception getE() {
+        return e;
+    }
     @Override
     public void run() {
         int i = handlerId;
@@ -150,7 +155,9 @@ class Handler implements Runnable {
                     imgCount.put(img, postCount + 1);
                 }
             } catch (TwitterException e) {
-                e.printStackTrace();
+                removeHadlers.setException(e);
+                this.e = e;
+                return;
             }
         }
         removeHadlers.dec();
@@ -165,7 +172,8 @@ class CountHandler {
         System.out.println("inc count: " + count);
     }
 
-    public boolean isEmpty() {
+    public boolean isEmpty() throws TwitterException {
+        if (exception != null) throw exception;
         return count <= 0;
     }
 
@@ -174,5 +182,10 @@ class CountHandler {
         count--;
     }
 
+    public void setException(TwitterException e) {
+        this.exception = e;
+    }
+
+    private TwitterException exception;
 }
 
