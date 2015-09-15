@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -jar target/collage-0.0.1-SNAPSHOT.jar --port $PORT
+web: java $JAVA_OPTS -jar target/collage-0.0.1-SNAPSHOT.jar --port $PORTgi
