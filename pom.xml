@@ -6,7 +6,7 @@
 	<groupId>com.collage.twitter</groupId>
 	<artifactId>collage</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<name>CollageCreator</name>
 	<description>create collage for user id from twitter</description>
