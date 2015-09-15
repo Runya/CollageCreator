@@ -58,7 +58,7 @@ public class MainController {
         return "viewImage";
     }
 
-    @RequestMapping(value = "*")
+    @RequestMapping(value = "/")
     public String redirect(){
         return "index";
     }
